@@ -243,11 +243,6 @@ score = RFC.score(X_test, y_test)
 # find the accuracy score for the model
 print(f'The accuracy score for this model is {score}\n')
 
-predicted= RFC.predict([[50,5,10]])
-# predict the calorie level for a given amount of each input
-print(f'The predicted calorie level for a food with 10g of fat, 5g of protein, and 10g of carbs is {predicted}\n')
-predicted2 = RFC.predict([[0,0,0]]) # FIX!
-print(f'The predicted calorie level for a food with 2g of fat, 4g of protein, and 5g of carbs is {predicted2}\n')
 
 y_predicted = RFC.predict(X_test)
 # assign the predicted calorie levels to a variable

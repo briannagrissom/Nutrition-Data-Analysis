@@ -75,8 +75,8 @@ q2 = df_calories.calories.describe()[5] # 50th percentile: 191 calories
 
 q3 = df_calories.calories.describe()[6] # 75th percentile: 337 calories
 
-df_calories['calorie level'] = pd.cut(df_calories.calories, bins = [minimum, q1, q2, q3, maximum], labels = [1, 2, 3, 4])
-df['calorie level'] = pd.cut(df_calories.calories, bins = [minimum, q1, q2, q3, maximum], labels = [1, 2, 3, 4] )
+df_calories['calorie level'] = pd.cut(df_calories.calories, bins = [minimum-0.01, q1, q2, q3, maximum], labels = [1, 2, 3, 4])
+df['calorie level'] = pd.cut(df_calories.calories, bins = [minimum-0.01, q1, q2, q3, maximum], labels = [1, 2, 3, 4] )
 # create levels for the calories based on the quartiles calculated above
 
 df_calories.loc[df_calories['calorie level'] == 2,:][100:105] # print a few rows where calorie level = 2
@@ -236,7 +236,7 @@ from sklearn.preprocessing import StandardScaler
 # import modules
 
 
-df2 = df[['name','total_fat_grams','protein_grams','carbohydrate_grams', 'calorie level']][:600]
+df2 = df[['name','total_fat_grams','protein_grams','carbohydrate_grams', 'calorie level']]
 # create a new data frame with the desired columns and 600 entries
 print(f'Create a new data frame with the desired columns (600 entries): \n {df2.head(2)}\n')
 

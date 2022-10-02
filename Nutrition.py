@@ -200,30 +200,6 @@ linearmodel.score(x,y)
 # R^2 of -0.81: negative relationship between water and calories
 
 
-# In[925]:
-
-
-from sklearn.model_selection import cross_val_score 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LogisticRegression, LinearRegression
-from sklearn.preprocessing import StandardScaler
-import statistics
-
-# Which model should we use to predict calorie level from fat, protein, and carbohydrates?
-
-features2 = StandardScaler().fit_transform(features)
-print(statistics.mean(cross_val_score(RandomForestClassifier(),features2,output)))
-print(statistics.mean(cross_val_score(SVC(),features2,output)))
-print(statistics.mean(cross_val_score(DecisionTreeClassifier(),features2,output)))
-print(statistics.mean(cross_val_score(LogisticRegression(),features2,output)))
-print(statistics.mean(cross_val_score(LinearRegression(),features2,output)))
-
-# RandomForestClassifier has the highest score for accuracy
-
-
-# In[962]:
 
 
 # predict the calorie level from the 3 main macronutrients: fat, protein, and carbohydrates
